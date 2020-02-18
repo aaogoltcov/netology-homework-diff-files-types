@@ -11,10 +11,12 @@ def first_10_words(descriptions):
         # if type(description) == types.dict "<class 'dict'>":
         if isinstance(description, dict):
             words = str(description['description'])
+            words = words.lower()
             words = words.split()
         # elif type(description) == "<class 'xml.etree.ElementTree.Element'>":
         else:
             words = str(description.find("description").text)
+            words = words.lower()
             words = words.split()
         for word in words:
             if len(word) > 6:
